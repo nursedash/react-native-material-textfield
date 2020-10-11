@@ -20,7 +20,7 @@ import styles from './styles';
 
 function startAnimation(animation, options, callback) {
   Animated
-    .timing(animation, { ...options, useNativeDriver: true })
+    .timing(animation, { ...options, useNativeDriver: false })
     .start(callback);
 }
 
