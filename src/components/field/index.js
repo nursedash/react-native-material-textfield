@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
+import { TextPropTypes } from 'deprecated-react-native-prop-types';
 import {
   View,
   Text,
@@ -84,9 +85,9 @@ export default class TextField extends PureComponent {
 
     labelOffset: Label.propTypes.offset,
 
-    labelTextStyle: Text.propTypes.style,
-    titleTextStyle: Text.propTypes.style,
-    affixTextStyle: Text.propTypes.style,
+    labelTextStyle: TextPropTypes.style,
+    titleTextStyle: TextPropTypes.style,
+    affixTextStyle: TextPropTypes.style,
 
     tintColor: PropTypes.string,
     textColor: PropTypes.string,
