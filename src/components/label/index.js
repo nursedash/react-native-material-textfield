@@ -70,10 +70,10 @@ export default class Label extends PureComponent {
       return null;
     }
 
-    let color = disabled?
-      baseColor:
-      restricted?
-        errorColor:
+    let color = disabled ?
+      baseColor :
+      restricted ?
+        errorColor :
         focusAnimation.interpolate({
           inputRange: [-1, 0, 1],
           outputRange: [errorColor, baseColor, tintColor],
@@ -90,14 +90,25 @@ export default class Label extends PureComponent {
     y0 += activeFontSize;
     y0 += contentInset.label;
     y0 += fontSize * 0.25;
+    let animatedTextStyle = {
+  transform: [
+    {
+      translateX: labelAnimation.interpolate({
+        inputRange: [0, 1],
+        outputRange: [0, -(fontSize * 0.9)],
+      }),
+    },
+    {
+      scale: labelAnimation.interpolate({
+        inputRange: [0, 1],
+        outputRange: [1, activeFontSize / fontSize],
+      }),
+    },
+  ],
+};
 
     let containerStyle = {
-      transform: [{
-        scale: labelAnimation.interpolate({
-          inputRange: [0, 1],
-          outputRange: [1, activeFontSize / fontSize],
-        }),
-      }, {
+      transform: [ {
         translateY: labelAnimation.interpolate({
           inputRange: [0, 1],
           outputRange: [y0, y1],
@@ -112,7 +123,7 @@ export default class Label extends PureComponent {
 
     return (
       <Animated.View style={[styles.container, containerStyle]}>
-        <Animated.Text style={[styles.text, style, textStyle]} {...props}>
+        <Animated.Text style={[styles.text, style, textStyle, animatedTextStyle]} {...props}>
           {label}
         </Animated.Text>
       </Animated.View>

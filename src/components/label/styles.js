@@ -1,13 +1,13 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  container: {
-    position: 'absolute',
-    top: 0,
-    left: '-100%',
-    width: '200%',
-    paddingLeft: '50%',
-  },
+container: {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  width: '100%',
+  alignItems: 'flex-start',
+},
 
   text: {
     textAlign: 'left',
